@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuadro medico</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f172a'/%3E%3Cpath d='M8 17h16M16 9v16' stroke='%2386efac' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header>
+    <h1>Cuadro mensual de medicos</h1>
+    <p>Demo interactiva para programacion, novedades, cobertura y nomina estimada.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label>Ano <input id="year" type="number" min="2026" max="2035" value="2026"></label>
+      <label>Mes <select id="month"></select></label>
+      <label>M requeridos <input id="needM" type="number" min="0" max="10" value="2"></label>
+      <label>T requeridos <input id="needT" type="number" min="0" max="10" value="2"></label>
+      <label>N requeridos <input id="needN" type="number" min="0" max="10" value="2"></label>
+      <button id="regenerate">Regenerar cuadro</button>
+      <button id="resetDemo" class="secondary">Reiniciar demo</button>
+    </section>
+
+    <section class="cards" id="kpis"></section>
+
+    <section>
+      <h2>Calendario nomina directa</h2>
+      <p class="muted">Edita cada celda. Las novedades bloqueantes aparecen como VAC, INC, LIC, PER o BLQ y no cuentan como libre normal.</p>
+      <div id="directCalendar"></div>
+      <h3>Cobertura por dia y turno</h3>
+      <p class="muted">Rojo significa que falta o sobra personal frente a la demanda.</p>
+      <div id="coverage"></div>
+    </section>
+
+    <section>
+      <h2>Calendario OPS separado</h2>
+      <p class="muted">Los OPS se editan aparte porque ofrecen disponibilidad y se pagan por horas/tarifa.</p>
+      <div id="opsCalendar"></div>
+    </section>
+
+    <section>
+      <h2>Novedades de nomina y disponibilidad</h2>
+      <div class="explain">
+        Registra vacaciones, licencias, permisos o incapacidades. Si bloquean turnos, se pintan en el calendario y la cobertura pendiente queda visible.
+      </div>
+      <div class="forms">
+        <form id="generalNovelty">
+          <h3>Vacaciones, licencias y permisos</h3>
+          <label>Medico <select name="staffId"></select></label>
+          <label>Tipo
+            <select name="type">
+              <option value="VACACIONES">Vacaciones</option>
+              <option value="LICENCIA_REMUNERADA">Licencia remunerada</option>
+              <option value="LICENCIA_NO_REMUNERADA">Licencia no remunerada</option>
+              <option value="PERMISO_REMUNERADO">Permiso remunerado</option>
+              <option value="PERMISO_NO_REMUNERADO">Permiso no remunerado</option>
+            </select>
+          </label>
+          <label>Desde <input name="start" type="date"></label>
+          <label>Hasta <input name="end" type="date"></label>
+          <label>Bloquea turnos
+            <select name="blocks">
+              <option value="1">Si</option>
+              <option value="0">No</option>
+            </select>
+          </label>
+          <button>Agregar novedad</button>
+        </form>
+
+        <form id="incapacityNovelty">
+          <h3>Incapacidades</h3>
+          <label>Medico <select name="staffId"></select></label>
+          <label>Tipo
+            <select name="type">
+              <option value="INCAPACIDAD_COMUN">Incapacidad comun</option>
+              <option value="INCAPACIDAD_LABORAL">Incapacidad laboral</option>
+            </select>
+          </label>
+          <label>Desde <input name="start" type="date"></label>
+          <label>Hasta <input name="end" type="date"></label>
+          <label>Dia acumulado <input name="accumulated" type="number" min="1" value="1"></label>
+          <button>Agregar incapacidad</button>
+        </form>
+      </div>
+      <h3>Novedades activas</h3>
+      <div id="novelties"></div>
+    </section>
+
+    <section>
+      <h2>Cubrir turnos pendientes</h2>
+      <div class="explain">Si una novedad deja un turno descubierto, elige manualmente quien lo cubre.</div>
+      <div id="coverageAssignments"></div>
+    </section>
+
+    <section>
+      <h2>Calendario de horas extra</h2>
+      <div class="explain">Las horas extra se estiman por franja: diurna, nocturna y dominical/festiva.</div>
+      <div id="extraHours"></div>
+    </section>
+
+    <section>
+      <h2>Desprendibles estimados de nomina directa</h2>
+      <div id="payslips"></div>
+    </section>
+
+    <section>
+      <h2>OPS - prestacion de servicios</h2>
+      <div id="opsSummary"></div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
