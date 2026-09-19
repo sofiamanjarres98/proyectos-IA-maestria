@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local runtime data
+*.sqlite3
+*.db
+.env
+.env.*
+
+# Build and temporary working files
+work/
+outputs/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
