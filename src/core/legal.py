@@ -1,0 +1,98 @@
+INITIAL_LEGAL_PARAMETERS = [
+    {
+        "name": "weekly_max_hours",
+        "value": 42,
+        "unit": "hours",
+        "official_source": "Ley 2466 de 2025 / Ley 2101 de 2021",
+    },
+    {
+        "name": "minimum_wage",
+        "value": 1750905,
+        "unit": "COP",
+        "official_source": "Decreto 1469 de 2025",
+    },
+    {
+        "name": "monthly_payroll_hour_divisor",
+        "value": 210,
+        "unit": "hours",
+        "official_source": "Circular Externa 101 de 2025 Ministerio del Trabajo",
+    },
+    {
+        "name": "night_surcharge",
+        "value": 0.35,
+        "unit": "percent",
+        "official_source": "Codigo Sustantivo del Trabajo art. 168",
+    },
+    {
+        "name": "overtime_day_surcharge",
+        "value": 0.25,
+        "unit": "percent",
+        "official_source": "Codigo Sustantivo del Trabajo art. 168",
+    },
+    {
+        "name": "overtime_night_surcharge",
+        "value": 0.75,
+        "unit": "percent",
+        "official_source": "Codigo Sustantivo del Trabajo art. 168",
+    },
+    {
+        "name": "mandatory_rest_surcharge",
+        "value": 0.90,
+        "unit": "percent",
+        "official_source": "Ley 2466 de 2025 implementacion gradual",
+    },
+    {
+        "name": "employee_health",
+        "value": 0.04,
+        "unit": "percent",
+        "official_source": "MinSalud regimen contributivo",
+    },
+    {
+        "name": "employee_pension",
+        "value": 0.04,
+        "unit": "percent",
+        "official_source": "Colpensiones / Sistema General de Pensiones",
+    },
+    {
+        "name": "employer_health",
+        "value": 0.085,
+        "unit": "percent",
+        "official_source": "MinSalud regimen contributivo",
+    },
+    {
+        "name": "employer_pension",
+        "value": 0.12,
+        "unit": "percent",
+        "official_source": "Colpensiones / Sistema General de Pensiones",
+    },
+    {
+        "name": "uvt_value",
+        "value": 52374,
+        "unit": "COP",
+        "official_source": "Resolucion DIAN 000238 de 2025",
+    },
+    {
+        "name": "labor_income_exempt_percent",
+        "value": 0.25,
+        "unit": "percent",
+        "official_source": "Estatuto Tributario art. 206, depuracion simplificada MVP",
+    },
+    {
+        "name": "withholding_source_enabled",
+        "value": 1,
+        "unit": "boolean",
+        "official_source": "Estatuto Tributario art. 383",
+    },
+    {
+        "name": "max_shift_hours",
+        "value": 12,
+        "unit": "hours",
+        "official_source": "Politica administrativa MVP",
+    },
+    {
+        "name": "min_rest_after_night_hours",
+        "value": 12,
+        "unit": "hours",
+        "official_source": "Parametro administrativo MVP",
+    },
+]
